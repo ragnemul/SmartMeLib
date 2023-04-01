@@ -85,12 +85,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (OpenCVLoader.initDebug()) {
             textView.setText(textView.getText() + "\n OPENCV LOADED SUCCESSFULLY");
-            // start socket operations on a non-UI thread
-            // new Thread(socketThread).start();
         } else {
             Log.d(TAG, "OPENCV DİD NOT LOAD");
         }
-
 
         select = findViewById(R.id.btnFlip);
         imageView = findViewById(R.id.imageView);
@@ -116,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
 
                     mat = new Mat();
                     Utils.bitmapToMat(bitmap, mat);
-
 
                     String[] hash_array = getHashArray(mat.getNativeObjAddr(), 33);
                     try {
